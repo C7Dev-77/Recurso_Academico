@@ -1,6 +1,8 @@
 Arquitecturas de Procesadores 2026
+
 Guia tecnica del portal interactivo y del simulador RISC paso a paso. Grupo 6: Juan David Arrieta Florez,
 Brandon Andres Garcia Baldovino, Cristian de Jesus Morales Berrio y Cesar Miguel Yepes Hernandez.
+
 1. Que contiene el portal
 Seccion Contenido Elemento interactivo
 CISC vs RISC Filosofias de ISA, ejemplo x86 vs RISC-V, tabla
@@ -19,6 +21,7 @@ Chips 2026 GPU, TPU, NPU, chiplets, HBM, RISC-V 3D: empaquetado con capas explot
 Simulador Tres programas mas un editor propio Ejecucion paso a paso con retroceso
 Glosario Mas de 35 terminos Tooltip al pasar el mouse sobre palabras
 punteadas y buscador
+
 2. Conceptos clave
 CISC usa instrucciones potentes y de longitud variable (x86: de 1 a 15 bytes); una sola puede leer
 memoria, operar y escribir. RISC usa instrucciones simples de 4 bytes y arquitectura load/store, lo que
@@ -28,6 +31,7 @@ Multinucleo: ante el limite termico de la frecuencia se integran varios nucleos.
 aceleracion = 1 / ((1 - p) + p/n); con p = 90 % el maximo teorico es 10x. Chips especializados: GPU
 (paralelismo masivo), TPU (ASIC para tensores), NPU (inferencia local), integrados como chiplets sobre
 un interposer con memoria HBM.
+
 3. El simulador RISC
 Subconjunto inspirado en RISC-V: 32 registros, instrucciones de 4 bytes (el PC avanza de 4 en 4),
 registro zero fijo en 0 y acceso a memoria solo con lw y sw. Cada paso ilumina las etapas Fetch, Decode,
@@ -47,15 +51,18 @@ Programa Que demuestra Resultado esperado
 3. Multiplicacion Bucle con addi y bne que suma 6 cuatro veces; se verifica con
 mul
 a0 = 24; a1 = 24
+
 4. Mi programa Editor libre para escribir y ensamblar codigo propio Depende del codigo
 Uso: elegir programa, pulsar Paso (o Ejecutar con velocidad ajustable), usar Atras para deshacer y
 Reiniciar para empezar de nuevo. Limitaciones: no hay codificacion binaria, pila ni subrutinas;
 ampliaciones posibles: sll, div, jal y simulacion de pipeline con riesgos de datos.
-4. Tecnologia y uso de IA
+
+Tecnologia y uso de IA
 El portal es un unico archivo HTML con CSS y JavaScript propios; los graficos 3D usan Three.js (r128)
 cargado desde cdnjs, por lo que se necesita conexion a internet para verlos. Se uso Claude para generar
 y depurar el codigo (simulador, escenas 3D, glosario) y Gemini para investigar tendencias y contrastar
 cifras. Todas las cifras se verificaron contra las fuentes oficiales citadas.
+
 5. Referencias
 Amazon Web Services. (2023). AWS Graviton4 processors. https://aws.amazon.com/ec2/graviton/
 Apple. (2024, 7 de mayo). Apple introduces M4 chip. Apple Newsroom.
